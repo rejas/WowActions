@@ -12,8 +12,8 @@ package com.wowactions.characters
 	import com.wowactions.professions.Profession;
 	import com.wowactions.pvp.ArenaTeam;
 	import com.wowactions.pvp.Battleground;
-	import com.wowactions.raids.Raid;
 	import com.wowactions.races.Race;
+	import com.wowactions.raids.Raid;
 	
 	/**
 	 * Contains data about a specific character from the game.
@@ -328,7 +328,14 @@ package com.wowactions.characters
 		// Public Methods
 		//========================================================
 		
-		
+		public function get selectedTitle():String
+		{
+			for each (var t:Title in _titles)
+				if (t.selected)
+					return t.name;
+			
+			return "";
+		}
 		
 		//========================================================
 		// Raid Data Methods
