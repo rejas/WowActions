@@ -1,6 +1,5 @@
 package com.wowactions.realms 
 {
-	import com.adobe.serialization.json.JSON;
 	import com.wowactions.events.WowActionsEvent;
 	import com.wowactions.net.ServiceActions;
 	import com.wowactions.net.ServicePaths;
@@ -113,7 +112,7 @@ package com.wowactions.realms
 			loader.removeEventListener(Event.COMPLETE, _onRealmsRetrieved);
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, _onIOError);
 			
-			var results:Object = JSON.decode(loader.data) as Object;
+			var results:Object = JSON.parse(loader.data) as Object;
 			var realms:Array = new Array();
 			
 			for each(var result:Object in results.realms)
@@ -180,7 +179,7 @@ package com.wowactions.realms
 			
 			var realms:Array = new Array();
 			
-			var results:Object = JSON.decode(loader.data);
+			var results:Object = JSON.parse(loader.data);
 			for each(var result:Object in results.realms)
 			{
 				if (result.status == _status)
@@ -246,7 +245,7 @@ package com.wowactions.realms
 			
 			var realms:Array = new Array();
 			
-			var results:Object = JSON.decode(loader.data);
+			var results:Object = JSON.parse(loader.data);
 			for each(var result:Object in results.realms)
 			{
 				if (result.type == _type)
@@ -310,7 +309,7 @@ package com.wowactions.realms
 			
 			var realms:Array = new Array();
 			
-			var results:Object = JSON.decode(loader.data);
+			var results:Object = JSON.parse(loader.data);
 			for each(var result:Object in results.realms)
 			{
 				if (result.queue == _queue)
@@ -374,7 +373,7 @@ package com.wowactions.realms
 			
 			var realms:Array = new Array();
 			
-			var results:Object = JSON.decode(loader.data);
+			var results:Object = JSON.parse(loader.data);
 			for each(var result:Object in results.realms)
 			{
 				if(result.population == _level)

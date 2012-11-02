@@ -1,6 +1,5 @@
 package com.wowactions.guilds 
 {
-	import com.adobe.serialization.json.JSON;
 	import com.wowactions.characters.Character;
 	import com.wowactions.characters.CharacterClassData;
 	import com.wowactions.data.Achievement;
@@ -8,6 +7,7 @@ package com.wowactions.guilds
 	import com.wowactions.net.ServicePaths;
 	import com.wowactions.net.WowActionService;
 	import com.wowactions.races.RaceData;
+	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.net.URLLoader;
@@ -116,7 +116,7 @@ package com.wowactions.guilds
 			loader.removeEventListener(Event.COMPLETE, _onGuildInfoRetrieved);
 			loader.removeEventListener(IOErrorEvent.IO_ERROR, _onIOError);
 			
-			var guildInfo:Object = JSON.decode(loader.data);
+			var guildInfo:Object = JSON.parse(loader.data);
 			
 			var guild:Guild = new Guild();
 			guild.name = guildInfo.name;

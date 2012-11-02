@@ -1,6 +1,5 @@
 package com.wowactions.characters 
 {
-	import com.adobe.serialization.json.JSON;
 	import com.wowactions.characters.CharacterClassData;
 	import com.wowactions.companions.Companion;
 	import com.wowactions.data.Reputation;
@@ -101,7 +100,7 @@ package com.wowactions.characters
 			
 			//trace(loader.data);
 			
-			var info:Object = JSON.decode(loader.data);
+			var info:Object = JSON.parse(loader.data);
 			var character:Character = new Character();
 			character.name = info.name;
 			character.level = info.level;
