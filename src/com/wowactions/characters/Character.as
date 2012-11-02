@@ -328,13 +328,13 @@ package com.wowactions.characters
 		// Public Methods
 		//========================================================
 		
-		public function get selectedTitle():String
+		public function get selectedTitle():Title
 		{
 			for each (var t:Title in _titles)
 				if (t.selected)
-					return t.name;
+					return t;
 			
-			return "";
+			return null;
 		}
 		
 		//========================================================
