@@ -254,24 +254,23 @@ package com.wowactions.characters
 			return companions;
 		}
 		
-		private function _parsePets(petInfo:Array):Vector.<Pet>
+		private function _parsePets(petInfo:Object):Vector.<Pet>
 		{
-			trace("parse pets");
 			var pets:Vector.<Pet> = new Vector.<Pet>();
-			for (var i:int = 0; i < petInfo.length; i++)
+			for (var i:int = 0; i < petInfo.collected.length; i++)
 			{
-				pets.push(new Pet(petInfo[i].name, petInfo[i].creature, petInfo[i].selected == "true", petInfo[i].slot));
+				pets.push(new Pet(petInfo.collected[i]));//.name, petInfo[i].creature, petInfo[i].selected == "true", petInfo[i].slot));
 			}
 			
 			return pets;
 		}
 		
-		private function _parseMounts(mountInfo:Array):Vector.<Mount>
+		private function _parseMounts(mountInfo:Object):Vector.<Mount>
 		{
 			var mounts:Vector.<Mount> = new Vector.<Mount>();
-			for (var i:int = 0; i < mountInfo.length; i++)
+			for (var i:int = 0; i < mountInfo.collected.length; i++)
 			{
-				mounts.push(new Mount(mountInfo[i]));
+				mounts.push(new Mount(mountInfo.collected[i]));
 			}
 			
 			return mounts;
