@@ -17,6 +17,7 @@ package com.wowactions.characters
 	import com.wowactions.races.RaceData;
 	import com.wowactions.raids.Raid;
 	import com.wowactions.raids.RaidBoss;
+	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.net.URLLoader;
@@ -67,7 +68,6 @@ package com.wowactions.characters
 		{
 			var loader:URLLoader = new URLLoader();
 			var request:URLRequest = new URLRequest();
-			
 			
 			var variables:String = "";
 			if (optionalParams)
@@ -332,7 +332,7 @@ package com.wowactions.characters
 			var arenaTeams:Vector.<ArenaTeam> = new Vector.<ArenaTeam>();
 			for (var j:int = 0; j < teamsInfo.length; j++)
 			{
-				arenaTeams.push(new ArenaTeam(teamsInfo[j].name, teamsInfo[j].personalRating, teamsInfo[j].teamRating, teamsInfo[i].size));
+				arenaTeams.push(new ArenaTeam(teamsInfo[j].name, teamsInfo[j].personalRating, teamsInfo[j].teamRating, teamsInfo[j].size));
 			}
 			retObj.arenaTeams = arenaTeams;
 			
