@@ -254,7 +254,8 @@ package com.wowactions.characters
 			var mounts:Vector.<Mount> = new Vector.<Mount>();
 			for (var i:int = 0; i < mountInfo.collected.length; i++)
 			{
-				mounts.push(new Mount(mountInfo.collected[i]));
+				var mount:Object = mountInfo.collected[i];
+				mounts.push(new Mount(mount.creatureId, mount.icon, mount.isAquatic, mount.isFlying, mount.isGround, mount.isJumping, mount.itemId, mount.name, mount.qualityId, mount.spellId));
 			}
 			
 			return mounts;

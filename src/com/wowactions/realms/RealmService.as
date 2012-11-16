@@ -116,7 +116,7 @@ package com.wowactions.realms
 			var realms:Array = new Array();
 			
 			for each(var result:Object in results.realms)
-				realms.push(_createRealmFromObject(result));
+				realms.push(new Realm(result.name, result.type, result.status, result.population, result.slug, result.queue));
 			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.REALMS_RETRIEVED, realms));
 		}
@@ -183,7 +183,7 @@ package com.wowactions.realms
 			for each(var result:Object in results.realms)
 			{
 				if (result.status == _status)
-					realms.push(_createRealmFromObject(result));
+					realms.push(new Realm(result.name, result.type, result.status, result.population, result.slug, result.queue));
 			}
 			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.REALMS_RETRIEVED, realms));
@@ -249,7 +249,7 @@ package com.wowactions.realms
 			for each(var result:Object in results.realms)
 			{
 				if (result.type == _type)
-					realms.push(_createRealmFromObject(result));
+					realms.push(new Realm(result.name, result.type, result.status, result.population, result.slug, result.queue));
 			}
 			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.REALMS_RETRIEVED, realms));
@@ -313,7 +313,7 @@ package com.wowactions.realms
 			for each(var result:Object in results.realms)
 			{
 				if (result.queue == _queue)
-					realms.push(_createRealmFromObject(result));
+					realms.push(new Realm(result.name, result.type, result.status, result.population, result.slug, result.queue));
 			}
 		}
 		
@@ -377,36 +377,10 @@ package com.wowactions.realms
 			for each(var result:Object in results.realms)
 			{
 				if(result.population == _level)
-					realms.push(_createRealmFromObject(result));
+					realms.push(new Realm(result.name, result.type, result.status, result.population, result.slug, result.queue));
 			}
 			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.REALMS_RETRIEVED, realms));
-		}
-		
-		//========================================================
-		// Helper Methods
-		//========================================================
-		
-		/**
-		 * @private
-		 * 
-		 * Creates an instance of the Realm class populated by the JSON object recieved from the Blizzard API.
-		 * 
-		 * @param	realmObject A JSON-formatted realm object retrieved from the Blizzard servers.
-		 * 
-		 * @return An instance of the Realm class, populated with the data from the given object.
-		 */
-		protected function _createRealmFromObject(realmObject:Object):Realm
-		{
-			var realm:Realm = new Realm();
-			realm.name = realmObject.name;
-			realm.type = realmObject.type;
-			realm.status = realmObject.status;
-			realm.slug = realmObject.slug;
-			realm.population = realmObject.population;
-			realm.queue = realmObject.queue;
-			
-			return realm;
 		}
 	}
 

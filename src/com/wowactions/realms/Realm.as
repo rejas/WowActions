@@ -84,9 +84,14 @@ package com.wowactions.realms
 		/**
 		 * The information for each server used in World of Warcraft.
 		 */
-		public function Realm() 
+		public function Realm(name:String="", type:String="", status:Boolean=false, population:String="", slug:String="", queue:Boolean = false)
 		{
-			
+			_name = name;
+			_type = type;
+			_status = status;
+			_slug = slug;
+			_population = population;
+			_queue = queue;
 		}
 		
 		public function toString():String

@@ -16,70 +16,79 @@ package com.wowactions.mounts
 		// Private Properties
 		//========================================================
 		
-		private var _info:Object = new Object();
+		private var _creatureId:Number;
+		private var _icon:String;
+		private var _isAquatic:Boolean;
+		private var _isFlying:Boolean;
+		private var _isGround:Boolean;
+		private var _isJumping:Boolean;
+		private var _itemId:Number;
+		private var _name:String;
+		private var _qualityId:Number;
+		private var _spellId:Number;
 		
 		//========================================================
 		// Getters / Setters
 		//========================================================
 		
-		public function get creatureId():Number { return _info.creatureId; }
+		public function get creatureId():Number { return _creatureId; }
 		public function set creatureId(value:Number):void
 		{
-			_info.creatureId = value;
+			_creatureId = value;
 		}
 		
-		public function get icon():String { return _info.icon; }
+		public function get icon():String { return _icon; }
 		public function set icon(value:String):void
 		{
-			_info.icon = value;
+			_icon = value;
 		}
 		
-		public function get isAquatic():Boolean { return _info.isAquatic; }
+		public function get isAquatic():Boolean { return _isAquatic; }
 		public function set isAquatic(value:Boolean):void
 		{
-			_info.isAquatic = value;
+			_isAquatic = value;
 		}
 		
-		public function get isFlying():Boolean { return _info.isFlying; }
+		public function get isFlying():Boolean { return _isFlying; }
 		public function set isFlying(value:Boolean):void
 		{
-			_info.isFlying = value;
+			_isFlying = value;
 		}
 		
-		public function get isGround():Boolean { return _info.isGround; }
+		public function get isGround():Boolean { return _isGround; }
 		public function set isGround(value:Boolean):void
 		{
-			_info.isGround = value;
+			_isGround = value;
 		}
 		
-		public function get isJumping():Boolean { return _info.isJumping; }
+		public function get isJumping():Boolean { return _isJumping; }
 		public function set isJumping(value:Boolean):void
 		{
-			_info.isJumping = value;
+			_isJumping = value;
 		}
 		
-		public function get itemId():Number { return _info.itemId; }
+		public function get itemId():Number { return _itemId; }
 		public function set itemId(value:Number):void
 		{
-			_info.itemId = value;
+			_itemId = value;
 		}
 		
-		public function get name():String { return _info.name; }
+		public function get name():String { return _name; }
 		public function set name(value:String):void
 		{
-			_info.name = value;
+			_name = value;
 		}
 		
-		public function get qualityId():Number { return _info.qualityId; }
+		public function get qualityId():Number { return _qualityId; }
 		public function set qualityId(value:Number):void
 		{
-			_info.qualityId = value;
+			_qualityId = value;
 		}
 		
-		public function get spellId():Number { return _info.spellId; }
+		public function get spellId():Number { return _spellId; }
 		public function set spellId(value:Number):void
 		{
-			_info.spellId = value;
+			_spellId = value;
 		}
 		
 		/**
@@ -87,10 +96,18 @@ package com.wowactions.mounts
 		 * 
 		 * @param	info (optional) The info object from 
 		 */
-		public function Mount(info:Object=null)
+		public function Mount(creatureId:Number = -1, icon:String = "", isAquatic:Boolean = false, isFlying:Boolean = false, isGround:Boolean = false, isJumping:Boolean = false, itemId:Number = -1, name:String = "", qualityId:Number = -1, spellId:Number = -1)
 		{
-			if (info != null)
-				this._info = info;
+			_creatureId = creatureId;
+			_icon = icon;
+			_isAquatic = isAquatic;
+			_isFlying = isFlying;
+			_isGround = isGround;
+			_isJumping = isJumping;
+			_itemId = itemId;
+			_name = name;
+			_qualityId = qualityId;
+			_spellId = spellId;
 		}
 		
 		/**
@@ -100,7 +117,7 @@ package com.wowactions.mounts
 		 */
 		public function toString():String
 		{
-			return "Mount: " + _info.name;
+			return "Mount: " + _name;
 		}
 		
 	}
