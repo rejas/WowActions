@@ -1,7 +1,6 @@
 package com.wowactions.characters 
 {
 	import com.wowactions.characters.CharacterClass;
-	import com.wowactions.companions.Companion;
 	import com.wowactions.data.Achievement;
 	import com.wowactions.data.IMergeable;
 	import com.wowactions.data.Reputation;
@@ -47,7 +46,6 @@ package com.wowactions.characters
 		private var _stats:Stats;
 		private var _reputations:Vector.<Reputation>;
 		private var _titles:Vector.<Title>;
-		private var _companions:Vector.<Companion>;
 		private var _pets:Vector.<Pet>;
 		private var _mounts:Vector.<Mount>;
 		private var _appearance:Appearance;
@@ -226,16 +224,7 @@ package com.wowactions.characters
 		}
 		
 		/**
-		 * A vector array of all non-combat pets obtained by the character.
-		 */
-		public function get companions():Vector.<Companion> { return _companions; }
-		public function set companions(value:Vector.<Companion>):void
-		{
-			_companions = value;
-		}
-		
-		/**
-		 * A vector array of all combat pets obtained by the character.
+		 * A vector array of all pets obtained by the character.
 		 */
 		public function get pets():Vector.<Pet> { return _pets; }
 		public function set pets(value:Vector.<Pet>):void
@@ -440,9 +429,6 @@ package com.wowactions.characters
 			
 			if (!titles && character.titles)
 				this.titles = character.titles;
-			
-			if (!companions && character.companions)
-				this.companions = character.companions;
 			
 			if (!pets && character.pets)
 				this.pets = character.pets;

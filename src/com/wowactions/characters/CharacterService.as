@@ -1,7 +1,6 @@
 package com.wowactions.characters 
 {
 	import com.wowactions.characters.CharacterClassData;
-	import com.wowactions.companions.Companion;
 	import com.wowactions.data.Reputation;
 	import com.wowactions.data.Title;
 	import com.wowactions.events.WowActionsEvent;
@@ -123,9 +122,6 @@ package com.wowactions.characters
 			if (info.hasOwnProperty("titles"))
 				character.titles = _parseTitles(info.titles);
 			
-			if (info.hasOwnProperty("companions"))
-				character.companions = _parseCompanions(info.companions);
-			
 			if (info.hasOwnProperty("pets"))
 				character.pets = _parsePets(info.pets);
 			
@@ -241,18 +237,7 @@ package com.wowactions.characters
 			
 			return titles;
 		}
-		
-		private function _parseCompanions(companionInfo:Array):Vector.<Companion>
-		{
-			var companions:Vector.<Companion> = new Vector.<Companion>();
-			for (var i:int = 0; i < companionInfo.length; i++)
-			{
-				companions.push(new Companion(companionInfo[i]));
-			}
-			
-			return companions;
-		}
-		
+				
 		private function _parsePets(petInfo:Object):Vector.<Pet>
 		{
 			var pets:Vector.<Pet> = new Vector.<Pet>();
