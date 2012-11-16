@@ -1,5 +1,7 @@
 package com.wowactions.data 
 {
+	import mx.collections.ArrayCollection;
+
 	/**
 	 * The physical regions that the data will be pulled from.
 	 * 
@@ -17,6 +19,13 @@ package com.wowactions.data
 		public static const KOREA:String = "kr.battle.net";
 		public static const TAIWAN:String = "tw.battle.net";
 		public static const CHINA:String = "battlenet.com.cn";
+		
+		public static const ENUM:ArrayCollection = new ArrayCollection([
+								{data:EUROPE, label:'EU'},
+								{data:UNITED_STATES, label:'US'},
+								{data:KOREA, label:'KR'},
+								{data:TAIWAN, label:'TW'},
+								{data:CHINA, label:'CH'}]);
 		
 		public function Region() 
 		{
