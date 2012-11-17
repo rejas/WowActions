@@ -243,7 +243,8 @@ package com.wowactions.characters
 			var pets:Vector.<Pet> = new Vector.<Pet>();
 			for (var i:int = 0; i < petInfo.collected.length; i++)
 			{
-				pets.push(new Pet(petInfo.collected[i]));//.name, petInfo[i].creature, petInfo[i].selected == "true", petInfo[i].slot));
+				var pet:Object = petInfo.collected[i];
+				pets.push(new Pet(pet.battlePetId, pet.canBattle, pet.creatureId, pet.creatureName, pet.icon, pet.isFavorite, pet.itemId, pet.name, pet.qualityId, pet.spellId));
 			}
 			
 			return pets;
@@ -263,14 +264,7 @@ package com.wowactions.characters
 		
 		private function _parseAppearance(info:Object):Appearance
 		{
-			var appearance:Appearance = new Appearance();
-			appearance.faceVariation = info.faceVariation;
-			appearance.featureVariation = info.featureVariation
-			appearance.hairColor = info.hairColor;
-			appearance.hairVariation = info.hairVariation;
-			appearance.showCloak = info.showCloak == "true";
-			appearance.showHelm = info.showHelm == "true";
-			appearance.skinColor = info.skinColor;
+			var appearance:Appearance = new Appearance(info.faceVariation, info.skinColor, info.hairVariation, info.hairColor, info.featureVariation, info.showCloak == "true", info.showHelm == "true");
 			
 			return appearance;
 		}
@@ -280,12 +274,6 @@ package com.wowactions.characters
 			var raids:Vector.<Raid> = new Vector.<Raid>();
 			for (var i:int = 0; i < info.length; i++)
 			{
-				var raid:Raid = new Raid();
-				raid.id = info[i].id;
-				raid.name = info[i].name;
-				raid.normal = info[i].normal;
-				raid.heroic = info[i].heroic;
-				
 				var bosses:Array = info[i].bosses;
 				var raidBosses:Vector.<RaidBoss> = new Vector.<RaidBoss>();
 				for (var j:int = 0; j < bosses.length; j++)
@@ -293,7 +281,8 @@ package com.wowactions.characters
 					raidBosses.push(new RaidBoss(bosses[j].id, bosses[j].name, bosses[j].normalKills, bosses[j].heroicKills));
 				}
 				
-				raid.bosses = raidBosses;
+				var raid:Raid = new Raid(info[i].id, info[i].name, info[i].normal, info[i].heroic, raidBosses);
+				
 				raids.push(raid);
 			}
 			
