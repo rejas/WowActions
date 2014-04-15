@@ -35,7 +35,7 @@ package com.wowactions.net
 		{
 			var loader:URLLoader = event.target as URLLoader;
 			
-			trace("Service Unavailable!  Error details: " + loader.data);
+			trace("Service Unavailable! Error details: " + loader.data);
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.DATA_ERROR));
 		}
 	}
