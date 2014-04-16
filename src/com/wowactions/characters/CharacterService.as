@@ -103,7 +103,7 @@ package com.wowactions.characters
 			var character:Character = new Character();
 			character.name = info.name;
 			character.level = info.level;
-			character.gender = (info.gender == 0) ? "Male" : "Female";
+			character.gender = info.gender;
 			character.race = RaceData.getRaceById(info.race);
 			character.characterClass = CharacterClassData.getClassById(info["class"]);
 			character.thumbnail = info.thumbnail;
