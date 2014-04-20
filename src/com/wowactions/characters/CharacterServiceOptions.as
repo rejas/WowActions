@@ -35,5 +35,7 @@ package com.wowactions.characters
 		public static const TALENTS:String = "talents";
 		
 		public static const TITLES:String = "titles";
+		
+		public static const AUDIT:String = "audit";
 	}
 }
