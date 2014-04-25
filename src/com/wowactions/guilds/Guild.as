@@ -332,7 +332,7 @@ package com.wowactions.guilds
 			for (var i:int = 0; i < achievements.length; i++)
 			{
 				if (achievements[i].completed)
-					completedAchievs.push(achievements);
+					completedAchievs.push(achievements[i]);
 			}
 			
 			return completedAchievs;
