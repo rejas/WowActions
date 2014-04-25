@@ -42,6 +42,7 @@ package com.wowactions.races
 		public static const BLOOD_ELF:String = "Blood Elf";
 		public static const HUMAN:String = "Human";
 		public static const NIGHT_ELF:String = "Night Elf";
+		public static const PANDAREN:String = "Pandaren";
 		
 		//========================================================
 		// Public Static Methods
@@ -58,18 +59,20 @@ package com.wowactions.races
 		{
 			var races:Vector.<Race> = new Vector.<Race>();
 			
-			races.push(new Race(3, 4, "Alliance", "Dwarf"));
-			races.push(new Race(6, 32, "Horde", "Tauren"));
-			races.push(new Race(5, 16, "Horde", "Undead"));
+			races.push(new Race(1, 1, "Alliance", "Human"));
 			races.push(new Race(2, 2, "Horde", "Orc"));
+			races.push(new Race(3, 4, "Alliance", "Dwarf"));
+			races.push(new Race(4, 8, "Alliance", "Night Elf"));
+			races.push(new Race(5, 16, "Horde", "Undead"));
+			races.push(new Race(6, 32, "Horde", "Tauren"));
 			races.push(new Race(7, 64, "Alliance", "Gnome"));
 			races.push(new Race(8, 128, "Horde", "Troll"));
 			races.push(new Race(9, 256, "Horde", "Goblin"));
+			races.push(new Race(10, 512, "Horde", "Blood Elf"));
 			races.push(new Race(11, 1024, "Alliance", "Draenei"));
 			races.push(new Race(22, 2097125, "Alliance", "Worgen"));
-			races.push(new Race(10, 512, "Horde", "Blood Elf"));
-			races.push(new Race(1, 1, "Alliance", "Human"));
-			races.push(new Race(4, 8, "Alliance", "Night Elf"));
+			races.push(new Race(25, 16777216, "Alliance", "Pandaren"));
+			races.push(new Race(26, 33554432, "Horde", "Pandaren"));
 			
 			return races;
 		}

@@ -26,6 +26,7 @@ package com.wowactions.characters
 		public static const DEATH_KNIGHT:String = "Death Knight";
 		public static const DRUID:String = "Druid";
 		public static const WARLOCK:String = "Warlock";
+		public static const MONK:String = "Monk";
 		
 		//========================================================
 		// Public Static Methods
@@ -40,16 +41,17 @@ package com.wowactions.characters
 		{
 			var classes:Vector.<CharacterClass> = new Vector.<CharacterClass>();
 			
-			classes.push(new CharacterClass(3, 4, "focus", "Hunter"));
-			classes.push(new CharacterClass(4, 8, "energy", "Rogue"));
 			classes.push(new CharacterClass(1, 1, "rage", "Warrior"));
 			classes.push(new CharacterClass(2, 2, "mana", "Paladin"));
-			classes.push(new CharacterClass(7, 64, "mana", "Shaman"));
-			classes.push(new CharacterClass(8, 128, "mana", "Mage"));
+			classes.push(new CharacterClass(3, 4, "focus", "Hunter"));
+			classes.push(new CharacterClass(4, 8, "energy", "Rogue"));
 			classes.push(new CharacterClass(5, 16, "mana", "Priest"));
 			classes.push(new CharacterClass(6, 32, "runic-power", "Death Knight"));
-			classes.push(new CharacterClass(11, 1024, "mana", "Druid"));
+			classes.push(new CharacterClass(7, 64, "mana", "Shaman"));
+			classes.push(new CharacterClass(8, 128, "mana", "Mage"));
 			classes.push(new CharacterClass(9, 256, "mana", "Warlock"));
+			classes.push(new CharacterClass(10, 512, "energy", "Monk"));
+			classes.push(new CharacterClass(11, 1024, "mana", "Druid"));
 			
 			return classes;
 		}
@@ -131,7 +133,5 @@ package com.wowactions.characters
 		{
 			
 		}
-		
 	}
-
 }
