@@ -123,7 +123,8 @@ package com.wowactions.guilds
 			guild.level = guildInfo.level;
 			guild.faction = (guildInfo.side == 0) ? "Alliance" : "Horde";
 			guild.achievementPoints = guildInfo.achievementPoints;
-			
+			guild.realm = guildInfo.realm;
+			guild.battleGroup = guildInfo.battlegroup;
 			
 			if (guildInfo.hasOwnProperty(MEMBERS))
 			{

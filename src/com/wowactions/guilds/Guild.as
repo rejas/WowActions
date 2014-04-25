@@ -27,6 +27,7 @@ package com.wowactions.guilds
 		private var _achievements:Vector.<Achievement>;
 		private var _numMembers:int;
 		private var _realm:String;
+		private var _battleGroup:String;
 		
 		//========================================================
 		// Getters / Setters
@@ -100,6 +101,12 @@ package com.wowactions.guilds
 		public function set realm(value:String):void
 		{
 			_realm = value;
+		}
+		
+		public function get battleGroup():String { return _battleGroup; }
+		public function set battleGroup(value:String):void
+		{
+			_battleGroup = value;
 		}
 		
 		//========================================================
