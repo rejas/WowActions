@@ -339,6 +339,9 @@ package com.wowactions.guilds
 		}
 		
 		/**
+		 * TODO those arent incomplete achievements, but rather only criterias.
+		 * @see https://github.com/Blizzard/api-wow-docs#achievements-1
+		 * 
 		 * Retrieves all achievements that have been started, but not completed, by the guild.
 		 * 
 		 * @return A vector array of achievements, or <code>null</code> of achievements have not been retrieved for the guild.
@@ -367,7 +370,5 @@ package com.wowactions.guilds
 		{
 			return name + ", Level: " + level + ", Faction: " + faction + " Guild, Achievement Points: " + achievementPoints;
 		}
-		
 	}
-
 }
