@@ -21,7 +21,6 @@ package com.wowactions.guilds
 	 */
 	[Event(name="guildInfoRetrieved", type="com.wowactions.events.WowActionsEvent")]
 	
-	
 	/**
 	 * Contains methods that allow the retrieval of guild information.
 	 * 
@@ -50,6 +49,20 @@ package com.wowactions.guilds
 		 * @see getGuildInfo
 		 */
 		public static const ACHIEVEMENTS:String = "achievements";
+		
+		/**
+		 * Optional news parameter for the <code>getGuildInfo</code> method.
+		 * 
+		 * @see getGuildInfo
+		 */
+		public static const NEWS:String = "news";
+		
+		/**
+		 * Optional challenge mode parameter for the <code>getGuildInfo</code> method.
+		 * 
+		 * @see getGuildInfo
+		 */
+		public static const CHALLENGE:String = "challenge";
 		
 		//========================================================
 		// Private Properties
@@ -187,10 +200,7 @@ package com.wowactions.guilds
 				guild.achievements = achievements;
 			}
 			
-			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.GUILD_INFO_RETRIEVED, guild));
 		}
-		
 	}
-
 }
