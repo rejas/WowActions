@@ -2,6 +2,7 @@ package com.wowactions.guilds
 {
 	import com.wowactions.characters.Character;
 	import com.wowactions.data.Achievement;
+	import com.wowactions.data.Criteria;
 	
 	/**
 	 * The Guild class contains information about a guild, as well as methods to retrieve member and achievement data.
@@ -25,6 +26,7 @@ package com.wowactions.guilds
 		private var _achievementPoints:Number;
 		private var _members:Vector.<Character>;
 		private var _achievements:Vector.<Achievement>;
+		private var _criterias:Vector.<Criteria>;
 		private var _numMembers:int;
 		private var _realm:String;
 		private var _battleGroup:String;
@@ -86,6 +88,15 @@ package com.wowactions.guilds
 		public function set achievements(value:Vector.<Achievement>):void
 		{
 			_achievements = value;
+		}
+		
+		/**
+		 * A vector array of all criterias the guild has made progress on
+		 */
+		public function get criterias():Vector.<Criteria> { return _criterias; }
+		public function set criterias(value:Vector.<Criteria>):void
+		{
+			_criterias = value;
 		}
 		
 		/**
@@ -315,51 +326,6 @@ package com.wowactions.guilds
 			}
 			
 			return chars;
-		}
-		
-		/**
-		 * Retrieves all achievements that have been completed by the guild.
-		 * 
-		 * @return A vector array of achievements, or <code>null</code> if no achievements have been retrieved for the guild.
-		 * 
-		 * @see com.wowactions.data.Achievement
-		 */
-		public function getCompletedAchievements():Vector.<Achievement>
-		{
-			if (!achievements) return null;
-			
-			var completedAchievs:Vector.<Achievement> = new Vector.<Achievement>();
-			for (var i:int = 0; i < achievements.length; i++)
-			{
-				if (achievements[i].completed)
-					completedAchievs.push(achievements[i]);
-			}
-			
-			return completedAchievs;
-		}
-		
-		/**
-		 * TODO those arent incomplete achievements, but rather only criterias.
-		 * @see https://github.com/Blizzard/api-wow-docs#achievements-1
-		 * 
-		 * Retrieves all achievements that have been started, but not completed, by the guild.
-		 * 
-		 * @return A vector array of achievements, or <code>null</code> of achievements have not been retrieved for the guild.
-		 * 
-		 * @see com.wowactions.data.Achievement
-		 */
-		public function getIncompleteAchievements():Vector.<Achievement>
-		{
-			if (!achievements) return null;
-			
-			var incompleteAchievs:Vector.<Achievement> = new Vector.<Achievement>();
-			for (var i:int = 0; i < achievements.length; i++)
-			{
-				if (!achievements[i].completed)
-					incompleteAchievs.push(achievements[i]);
-			}
-			
-			return incompleteAchievs;
 		}
 		
 		/**

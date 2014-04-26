@@ -3,6 +3,7 @@ package com.wowactions.guilds
 	import com.wowactions.characters.Character;
 	import com.wowactions.characters.CharacterClassData;
 	import com.wowactions.data.Achievement;
+	import com.wowactions.data.Criteria;
 	import com.wowactions.events.WowActionsEvent;
 	import com.wowactions.net.ServicePaths;
 	import com.wowactions.net.WowActionService;
@@ -170,7 +171,7 @@ package com.wowactions.guilds
 				
 				var completedAchievements:Array = achievementInfo.achievementsCompleted;
 				var achievementsCompletedTimestamp:Array = achievementInfo.achievementsCompletedTimestamp;
-				var criteria:Array = achievementInfo.criteria;
+				var criteriaArray:Array = achievementInfo.criteria;
 				var criteriaQuantity:Array = achievementInfo.criteriaQuantity;
 				var criteriaCompleteTimestamp:Array = achievementInfo.criteriaTimestamp;
 				var criteriaStartTimestamp:Array = achievementInfo.criteriaCreated;
@@ -185,19 +186,21 @@ package com.wowactions.guilds
 					achievement.completed = true;
 					achievements.push(achievement);
 				}
-				
-				// Incomplete achievements
-				for (var k:int = 0; k < criteria.length; k++)
-				{
-					achievement = new Achievement();
-					achievement.achievementId = criteria[k];
-					achievement.startTimestamp = criteriaStartTimestamp[k];
-					achievement.criteriaQuantity = criteriaQuantity[k];
-					achievement.completed = false;
-					achievements.push(achievement);
-				}
-				
 				guild.achievements = achievements;
+				
+				var criterias:Vector.<Criteria> = new Vector.<Criteria>();
+				var criteria:Criteria;
+				// Incomplete achievement criteria
+				for (var k:int = 0; k < criteriaArray.length; k++)
+				{
+					criteria = new Criteria();
+					criteria.criteriaId = criteriaArray[k];
+					criteria.startTimestamp = criteriaStartTimestamp[k];
+					criteria.criteriaQuantity = criteriaQuantity[k];
+					criterias.push(criteria);
+				}
+				guild.criterias = criterias;
+				
 			}
 			
 			dispatchEvent(new WowActionsEvent(WowActionsEvent.GUILD_INFO_RETRIEVED, guild));
